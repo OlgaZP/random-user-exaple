@@ -1,23 +1,104 @@
-#userList {
+body {
+    background-color: rgb(151, 163, 175);
+}
+
+.divSelectedNames {
+    color: white;
+    font-size: 1.3em;
+    width: 90%;
+    margin: 1em;
+}
+
+.userList {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
 .userListItem {
-    margin: 20px;
-    width: 250px;
-    text-align: center;
-    border: 2px solid darkblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 
+    margin: 2em;
+    width: 250px;
+    height: 400px;
+    text-align: center;    
+    /* background-color: rgb(146, 168, 190); */
+    background-color: rgb(212, 225, 228);
+    box-shadow: 0 0 15px 5px darkslategrey;
+    border-radius: 10px;
+    /* border: 2px solid darkblue; */
+    
 }
+
+/* .userListItemTop{
+    background-color: blue;
+    border: brown 1px solid;
+    transform:  skewY(-8deg); */
+    /* position: relative;
+    width: 100%;
+    height: 60px;
+    background-color: blue;
+    &::after{
+      content: '';
+      position: absolute;
+      top: 0;bottom: 0;left: 0;right: 0;
+      background: inherit;
+    
+      -webkit-transform: skewY(8deg);
+      -moz-transform: skewY(8deg);
+      -ms-transform: skewY(8deg);
+      -o-transform: skewY(8deg);
+      transform: skewY(8deg);
+      -webkit-transform-origin: 0 100%;
+      -moz-transform-origin: 0 100%;
+      -ms-transform-origin: 0 100%;
+      -o-transform-origin: 0 100%;
+      transform-origin: 0 100%; */
+    /* } */
 
 .userListItem > img {
+    width: 150px;
+    height: 150px;
+    border: slategrey 0.5px double;
     border-radius: 50%;
+    margin: 2em;
 }
 
+.maleListItem {
+    color: darkblue;
+}
+
+.femaleListItem {
+    color: darkred;
+}
+
+/* .unknownGenderListItem {
+    background-color: lightgray;
+} */
+
 .userFullName {
-    padding: 15px;
+    padding: 1em;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.userLocation {
+    padding: 1em;
+}
+
+.userEmail {
+    padding: 1em;
+    margin: auto 1em 2em 1em;
+    font-size: 1.2em;
+}
+
+.userListItemHighlight {
+    /* background-color: mediumseagreen;  */
+    box-shadow: 0 0 15px 5px darkred;
+    
 }
 
 .buttonContainer {
@@ -26,5 +107,18 @@
 }
 
 .buttonContainer > button {
-    margin: 10px;
+    margin: 1em;
+    padding: 1em;
+    background-color: slategrey;
+    border-radius: 0.5em;
+
 }
+
+.buttonContainer > input {
+    margin: 1em;
+    padding: 1em 0;
+    background-color: slategrey;
+    border-radius: 0.5em;
+
+}
+
