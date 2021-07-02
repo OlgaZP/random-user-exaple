@@ -6,7 +6,8 @@ body {
     color: white;
     font-size: 1.3em;
     width: 90%;
-    margin: 1em;
+    padding-left: 1em;;
+    margin: 1em;   
 }
 
 .userList {
@@ -24,47 +25,39 @@ body {
     margin: 2em;
     width: 250px;
     height: 400px;
-    text-align: center;    
-    /* background-color: rgb(146, 168, 190); */
+    text-align: center;        
     background-color: rgb(212, 225, 228);
     box-shadow: 0 0 15px 5px darkslategrey;
-    border-radius: 10px;
-    /* border: 2px solid darkblue; */
-    
+    border-radius: 10px;   
 }
 
-/* .userListItemTop{
-    background-color: blue;
-    border: brown 1px solid;
-    transform:  skewY(-8deg); */
-    /* position: relative;
+ /* .userListItemTop {
+    background-color: rgb(24, 107, 185);    
     width: 100%;
     height: 60px;
-    background-color: blue;
-    &::after{
-      content: '';
-      position: absolute;
-      top: 0;bottom: 0;left: 0;right: 0;
-      background: inherit;
-    
-      -webkit-transform: skewY(8deg);
-      -moz-transform: skewY(8deg);
-      -ms-transform: skewY(8deg);
-      -o-transform: skewY(8deg);
-      transform: skewY(8deg);
-      -webkit-transform-origin: 0 100%;
-      -moz-transform-origin: 0 100%;
-      -ms-transform-origin: 0 100%;
-      -o-transform-origin: 0 100%;
-      transform-origin: 0 100%; */
-    /* } */
+    position: relative;    
+    border-radius: 10px;
+ } 
+
+ .userListItemTop::after{
+    content: '';
+    position: absolute;
+    top: 0;bottom: 0;left: 0;right: 0;
+    background: inherit;
+    transform:  skewY(8deg); 
+    transform-origin: 0 100%; 
+    overflow: hidden;   
+ } */
 
 .userListItem > img {
     width: 150px;
     height: 150px;
     border: slategrey 0.5px double;
     border-radius: 50%;
-    margin: 2em;
+    /* margin: 2em 1em 1em 1em; */
+    position: absolute;
+    margin-top: 1.5em;
+    /* transform: translate(-50%, -50%); */
 }
 
 .maleListItem {
@@ -80,6 +73,7 @@ body {
 } */
 
 .userFullName {
+    margin-top: 170px;
     padding: 1em;
     font-size: 1.3em;
     font-weight: bold;
@@ -90,15 +84,30 @@ body {
 }
 
 .userEmail {
-    padding: 1em;
-    margin: auto 1em 2em 1em;
+    margin-top: auto;
+    padding-bottom: 2em;
     font-size: 1.2em;
+    width: 100%;
+    position: relative;
+    height: 1em;
+    background-color: darkslateblue;
+    color: black;
+    opacity: 70%;
+    border-radius: 10px;
+}
+.userEmail::before{
+    z-index: -1;
+    content: '';
+    position: absolute;
+    top: 0px;bottom: 0;left: 0;right: 0;
+    background: inherit;
+
+    transform: skewY(8deg);
+    transform-origin: 100%;
 }
 
-.userListItemHighlight {
-    /* background-color: mediumseagreen;  */
-    box-shadow: 0 0 15px 5px darkred;
-    
+.userListItemHighlight {    
+    box-shadow: 0 0 15px 5px darkred;    
 }
 
 .buttonContainer {
@@ -111,7 +120,6 @@ body {
     padding: 1em;
     background-color: slategrey;
     border-radius: 0.5em;
-
 }
 
 .buttonContainer > input {
@@ -119,6 +127,5 @@ body {
     padding: 1em 0;
     background-color: slategrey;
     border-radius: 0.5em;
-
 }
 

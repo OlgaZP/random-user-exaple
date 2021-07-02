@@ -52,7 +52,8 @@ function renderUsers(users) {
     
     const newUserList = document.createElement('ul');
     newUserList.classList.add('userList');
-    document.getElementById('root').prepend(newUserList);
+    //document.getElementById('root').prepend(newUserList);
+    document.querySelector('.divSelectedNames').after(newUserList);
 
     const liUserCollection = users.map(user => createUserListItem(user));
     
@@ -73,8 +74,7 @@ function createUserListItem ({
     
     userListItem.append(createUserImage(userImageSrc));   
     //добавляем дополнительно стилизацию в зависимости от пола пользователя 
-    //меняется цвет текста для полного имени
-    //userListItem.classList.add(gender === 'male' ? 'maleListItem' : 'femaleListItem');  
+    //меняется цвет текста для полного имени    
     userListItem.append(createUserFullName(firstName, lastName, gender));
     userListItem.append(createUserAge(userAge));
     //добавляем дополнительно email пользователя и его город
@@ -129,38 +129,35 @@ function createUserEmail(email) {
     return div;
 }
 
+//массив хранит выбранных пользователей
+const selectedUsernames = [];
+
 function userListItemClickHendler ({currentTarget}) {
     currentTarget.classList.toggle('userListItemHighlight');
     //добавляем надпись в строку
     const userSelectedFullName = currentTarget.querySelector('.userFullName').innerText;
     //console.log(`userSelectedFullName`, userSelectedFullName);
-    if (currentTarget.classList.contains('userListItemHighlight')) {
-        addSelectedFullNames(userSelectedFullName);
-    } 
-    else {
-        removeUnselectedFullNames(userSelectedFullName);
-    }
-    
+    currentTarget.classList.contains('userListItemHighlight')  
+        ? addSelectedFullNames(userSelectedFullName)
+        : removeUnselectedFullNames(userSelectedFullName);
+    displaySelectedUsers(selectedUsernames);
 }
 
 function addSelectedFullNames(selectedName) {
-    //ищем див для имен, если уже он есть - добывляем текст, если нет - создаем
-    let divSelectedNames = document.querySelector('.divSelectedNames');
-    if (divSelectedNames) {
-        divSelectedNames.textContent += ` ${selectedName},`;
-    } 
-    else {
-       divSelectedNames = document.createElement('div');
-       divSelectedNames.classList.add('divSelectedNames');
-       divSelectedNames.textContent = `Selected persons: ${selectedName},`;
-       const divRoot = document.querySelector('#root');
-       divRoot.prepend(divSelectedNames);
-    }
+    //проверяем есть ли уже такое имя в массиве и добавляем в див если нет    
+    if (!selectedUsernames.includes(selectedName)) {
+        selectedUsernames.push(selectedName);
+    }         
 }
 
-function removeUnselectedFullNames(unselectedName) {
-    const divSelectedNames = document.querySelector('.divSelectedNames');
-    const strNames = divSelectedNames.textContent;
-    //console.log(`strNames`, strNames);
-    divSelectedNames.textContent = strNames.replace(`${unselectedName},`,'');
+function removeUnselectedFullNames(unselectedName) {       
+    const delIndex = selectedUsernames.indexOf(unselectedName);
+    if (delIndex > -1) {
+        selectedUsernames.splice(delIndex, 1);
+    }    
+}
+
+function displaySelectedUsers (selectedUsernames) {
+    const divSelectedNames = document.querySelector('.divSelectedNames'); 
+    divSelectedNames.textContent = `Selected persons: ${selectedUsernames.join(', ')}`;
 }
