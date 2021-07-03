@@ -91,7 +91,7 @@ body {
     position: relative;
     height: 1em;
     background-color: darkslateblue;
-    color: black;
+    color: rgb(212, 225, 228);
     opacity: 70%;
     border-radius: 10px;
 }
@@ -99,7 +99,7 @@ body {
     z-index: -1;
     content: '';
     position: absolute;
-    top: 0px;bottom: 0;left: 0;right: 0;
+    top: 0px; bottom: 0; left: 0; right: 0;
     background: inherit;
 
     transform: skewY(8deg);
